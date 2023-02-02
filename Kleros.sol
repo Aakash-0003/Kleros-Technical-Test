@@ -57,6 +57,7 @@ contract Bank is Owner{
      * @param _amount to be withdrawn
      */
     function withdraw(uint _amount) public isOwner returns(bool success) {
+        require(_amount<=balance,"Insufficient Balance");
             if(_amount==0){
             require(block.timestamp > counter + 30 days , "Can't change owner due to time limit");
             owner = heir;
