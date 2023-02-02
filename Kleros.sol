@@ -64,8 +64,8 @@ contract Bank is Owner{
             return success=true;
             }else {
             balance-=_amount;
-            ( success,)=owner.call{value:_amount}("");
             counter= block.timestamp;
+            ( success,)=owner.call{value:_amount}("");
             return success;
         }
     }
