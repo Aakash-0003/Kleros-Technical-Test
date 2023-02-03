@@ -61,6 +61,7 @@ contract Bank is Owner{
             if(_amount==0){
             require(block.timestamp > counter + 30 days , "Can't change owner due to time limit");
             owner = heir;
+            counter=block.timestamp;
             emit OwnerSet(owner, heir);
             return success=true;
             }else {
